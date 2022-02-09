@@ -3,15 +3,22 @@ package co.edu.escuelaing.service.impl;
 import co.edu.escuelaing.service.TempService;
 import com.google.gson.JsonObject;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class TempImpl implements TempService {
     @Override
     public double CelsiusToFahrenheit(double value) {
-        return (value * 9/5) + 32;
+        double f = (value * 9/5) + 32;
+
+        return new BigDecimal(f).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     @Override
     public double FahrenheitToCelsius(double value) {
-        return (value - 32) * 5/9;
+        double c = (value - 32) * 5/9;
+
+        return new BigDecimal(c).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     @Override
@@ -21,7 +28,7 @@ public class TempImpl implements TempService {
         double f = CelsiusToFahrenheit(value);
 
         json.addProperty("result", f);
-        json.addProperty("units", "FaFahrenheit");
+        json.addProperty("units", "Fahrenheit");
 
         return json;
     }

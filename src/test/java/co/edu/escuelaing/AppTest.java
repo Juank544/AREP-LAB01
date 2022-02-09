@@ -54,7 +54,7 @@ public class AppTest
     @Test
     public void ceroFtoC(){
         String res = String.valueOf(tempService.FahrenheitToCelsius(0));
-        assertEquals(res,"-17.77");
+        assertEquals(res,"-17.78");
     }
 
     @Test
