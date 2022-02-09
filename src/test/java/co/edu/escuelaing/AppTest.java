@@ -44,4 +44,22 @@ public class AppTest
         String res = String.valueOf(tempService.CelsiusToFahrenheit(10));
         assertEquals(res,"50.0");
     }
+
+    @Test
+    public void negativeFtoC(){
+        String res = String.valueOf(tempService.FahrenheitToCelsius(-10));
+        assertEquals(res,"-23.33");
+    }
+
+    @Test
+    public void ceroFtoC(){
+        String res = String.valueOf(tempService.FahrenheitToCelsius(0));
+        assertEquals(res,"-17.77");
+    }
+
+    @Test
+    public void positiveFtoC(){
+        String res = String.valueOf(tempService.FahrenheitToCelsius(10));
+        assertEquals(res,"-12.22");
+    }
 }
