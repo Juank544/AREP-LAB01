@@ -1,6 +1,6 @@
 # Temperature Conversor
 
-One Paragraph of project description goes here
+An app designed to convert temperature between Celsius and Fahrenheit or vice versa. The app provides 2 ways to convert: using de API Rest, or the web server.  
 
 ## Getting Started
 
@@ -9,6 +9,10 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 What things you need to install the software and how to install them
+* Git
+* Maven
+* Java
+* Integrated Development Environment - IDE (IntelliJ, Eclipse, NetBeans)
 
 ```
 Give examples
@@ -18,38 +22,32 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+0. Clone the repo in your local machine
 
 ```
-Give the example
+git clone https://github.com/Juank544/AREP-LAB01.git
 ```
 
-And repeat
+1. Clean the maven dependencies from your local machine 
 
 ```
-until finished
+mvn clean
 ```
+
+2. Run and compile the app
+
+```
+mvn compile
+```
+
 
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
 Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+mvn test
 ```
 
 ## Deployment
