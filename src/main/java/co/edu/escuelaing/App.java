@@ -1,5 +1,8 @@
 package co.edu.escuelaing;
 
+import co.edu.escuelaing.service.TempService;
+import co.edu.escuelaing.service.impl.TempImpl;
+
 import static spark.Spark.*;
 
 /**
@@ -8,8 +11,27 @@ import static spark.Spark.*;
  */
 public class App 
 {
+    static TempService tempService = new TempImpl();
+
     public static void main( String[] args ){
+        //staticFileLocation("/public");
         port(getPort());
+
+        path("/api/v1", () -> {
+            get("/CtF", (req, res) ->{
+                res.type("application/json");
+                String value = req.queryParams("value");
+
+                return tempService.CelsiusToFahrenheit(Double.parseDouble(value));
+            });
+            get("/FtC", (req, res) ->{
+                res.type("application/json");
+                String value = req.queryParams("value");
+
+                return tempService.FahrenheitToCelsius(Double.parseDouble(value));
+            });
+        });
+
         get("/hello", (req, res) -> "Hello World");
     }
 
