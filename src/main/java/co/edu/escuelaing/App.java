@@ -17,6 +17,12 @@ public class App
         //staticFileLocation("/public");
         port(getPort());
 
+        // Allow CORS
+        after(((request, response) -> {
+            response.header("Access-Control-Allow-Origin", "*");
+            response.header("Access-Control-Allow-Methods", "GET");
+        }));
+
         path("/api/v1", () -> {
             get("/CtF", (req, res) ->{
                 res.type("application/json");
