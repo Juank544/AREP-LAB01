@@ -14,7 +14,7 @@ public class App
     static TempService tempService = new TempImpl();
 
     public static void main( String[] args ){
-        //staticFileLocation("/public");
+        staticFileLocation("/public");
         port(getPort());
 
         // Allow CORS
@@ -24,13 +24,13 @@ public class App
         }));
 
         path("/api/v1", () -> {
-            get("/CtF", (req, res) ->{
+            get("/CtF:value", (req, res) ->{
                 res.type("application/json");
                 String value = req.queryParams("value");
 
                 return tempService.CelsiusToFahrenheit(Double.parseDouble(value));
             });
-            get("/FtC", (req, res) ->{
+            get("/FtC:value", (req, res) ->{
                 res.type("application/json");
                 String value = req.queryParams("value");
 
