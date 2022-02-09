@@ -2,6 +2,7 @@ package co.edu.escuelaing.service.impl;
 
 import co.edu.escuelaing.service.TempService;
 import com.google.gson.JsonObject;
+import org.eclipse.jetty.http.HttpStatus;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -27,6 +28,7 @@ public class TempImpl implements TempService {
 
         double f = CelsiusToFahrenheit(value);
 
+        json.addProperty("status", HttpStatus.OK_200);
         json.addProperty("result", f);
         json.addProperty("units", "Fahrenheit");
 
@@ -39,6 +41,7 @@ public class TempImpl implements TempService {
 
         double c = FahrenheitToCelsius(value);
 
+        json.addProperty("status", HttpStatus.OK_200);
         json.addProperty("result", c);
         json.addProperty("units", "Celsius");
 

@@ -24,21 +24,23 @@ public class App
         }));
 
         path("/api/v1", () -> {
-            get("/CtF:value", (req, res) ->{
+            get("/CtF/:value", (req, res) ->{
                 res.type("application/json");
                 String value = req.queryParams("value");
 
-                return tempService.CelsiusToFahrenheit(Double.parseDouble(value));
+                return tempService.CtF(Double.parseDouble(value));
             });
-            get("/FtC:value", (req, res) ->{
+            get("/FtC/:value", (req, res) ->{
                 res.type("application/json");
                 String value = req.queryParams("value");
 
-                return tempService.FahrenheitToCelsius(Double.parseDouble(value));
+                return tempService.FtC(Double.parseDouble(value));
             });
         });
 
-        get("/hello", (req, res) -> "Hello World");
+        get("/hello/:name", (req, res) -> {
+            return "Hola" + req.params(":name");
+        });
     }
 
     static int getPort() {
